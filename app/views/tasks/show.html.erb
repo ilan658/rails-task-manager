@@ -1,0 +1,8 @@
+<h1><%= @task.title %></h1>
+
+<p><strong>Détails :</strong> <%= @task.details %></p>
+<p><strong>Terminée :</strong> <%= @task.completed ? "Oui" : "Non" %></p>
+
+<%= link_to 'Retour à la liste des tâches', tasks_path, class: 'btn btn-secondary' %>
+<%= link_to 'Éditer la tâche', edit_task_path(@task), class: 'btn btn-warning' %>
+<%= link_to 'Supprimer la tâche', task_path(@task), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette tâche ?' }, class: 'btn btn-danger' %>

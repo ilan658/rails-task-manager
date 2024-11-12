@@ -1,0 +1,22 @@
+<h1>Liste des Tâches</h1>
+
+<!-- Lien pour créer une nouvelle tâche -->
+<%= link_to 'Nouvelle Tâche', new_task_path, class: 'btn btn-primary' %>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <!-- Lien vers la page de détails de la tâche -->
+      <strong><%= link_to task.title, task_path(task) %></strong>
+
+      <p><em>Détails :</em> <%= task.details %></p>
+      <p><em>Terminée :</em> <%= task.completed ? "Oui" : "Non" %></p>
+
+      <!-- Lien pour éditer la tâche -->
+      <%= link_to 'Éditer', edit_task_path(task), class: 'btn btn-warning' %>
+
+      <!-- Lien pour supprimer la tâche avec une confirmation JavaScript -->
+      <%= link_to 'Supprimer', task_path(task), method: :delete, data: { confirm: 'Êtes-vous sûr de vouloir supprimer cette tâche ?' }, class: 'btn btn-danger' %>
+    </li>
+  <% end %>
+</ul>

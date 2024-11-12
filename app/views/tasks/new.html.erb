@@ -1,0 +1,24 @@
+<h1>Nouvelle Tâche</h1>
+
+<%= form_with model: @task, local: true do |form| %>
+  <div>
+    <%= form.label :title, "Titre" %>
+    <%= form.text_field :title, required: true %>
+  </div>
+
+  <div>
+    <%= form.label :details, "Détails" %>
+    <%= form.text_area :details %>
+  </div>
+
+  <div>
+    <%= form.label :completed, "Terminée" %>
+    <%= form.check_box :completed %>
+  </div>
+
+  <div>
+    <%= form.submit "Créer Tâche" %>
+  </div>
+<% end %>
+
+<%= link_to 'Retour à la liste des tâches', tasks_path %>
